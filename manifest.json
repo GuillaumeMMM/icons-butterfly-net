@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Icons butterfly net",
+  "version": "1.0.0",
+  "description": "Download all icons from a web page",
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "permissions": ["tabs", "activeTab", "downloads"],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "icons": {
+    "48": "icon.png"
+  }
+}

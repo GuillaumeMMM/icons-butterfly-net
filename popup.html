@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 300px;
+        padding: 1rem;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        margin: 1rem 0;
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      ul > li {
+        width: 48px;
+        max-height: 48px;
+      }
+
+      button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1.5rem;
+        line-height: 1.5rem;
+        background-color: rgb(0, 34, 255);
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        border: 2px solid rgb(0, 23, 175);
+        font-size: 1rem;
+      }
+
+      button:hover {
+        background-color: rgb(0, 30, 224);
+      }
+
+      button:focus-visible {
+        outline: 2px solid rgb(0, 30, 224);
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Icons butterfly net</h2>
+    <ul id="list"></ul>
+    <button type="button" id="download">Download</button>
+    <script type="text/javascript" src="./purify.js"></script>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
