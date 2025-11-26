@@ -3,11 +3,10 @@
   "name": "Icons butterfly net",
   "version": "1.0.0",
   "description": "Download all icons from a web page",
-
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "48": "icon.png"
+      "32": "icon.png"
     }
   },
   "permissions": ["tabs", "activeTab", "downloads"],
@@ -17,8 +16,15 @@
       "js": ["content.js"]
     }
   ],
-
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{e1356509-8cc8-4e55-8935-c54435155364}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "icons": {
-    "48": "icon.png"
+    "32": "icon.png"
   }
 }
