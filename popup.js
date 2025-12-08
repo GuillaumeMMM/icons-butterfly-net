@@ -20,6 +20,9 @@ function computeSvgs(response) {
     //  Filter and clean icon svgs
     const svgs = response.svgs.map(svg => optimize(svg).data).filter(Boolean).filter(svg => ['path', 'circle', 'rect', 'ellipse', 'polygon', 'polyline'].some(tag => svg.includes(tag))).filter(svg => !svg.includes('logo')).map(DOMPurify.sanitize)
 
+    const count = document.getElementById('count')
+    count.textContent = svgs.length
+
     const svgsElements = []
 
     const list = document.getElementById('list')
