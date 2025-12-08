@@ -1,5 +1,5 @@
 
-import { optimize } from './node_modules/svgo/dist/svgo.browser.js';
+import { optimize } from './svgo.browser.js';
 
 const downloadButton = document.getElementById('download')
 
@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         browser.tabs.sendMessage(tabs[0].id, { type: "changeSvgs" })
             .then(response => {
+                console.log("Response:", response);
                 computeSvgs(response)
-            })
+            }).catch(err => console.error("Messaging error:", err));
         //  Make sure that content.js is loaded at this point
     }, 100)
 });
