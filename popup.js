@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         browser.tabs.sendMessage(tabs[0].id, { type: "changeSvgs" })
             .then(response => {
-                console.log("Response:", response);
                 computeSvgs(response)
             }).catch(err => console.error("Messaging error:", err));
         //  Make sure that content.js is loaded at this point
@@ -21,7 +20,15 @@ function computeSvgs(response) {
     const svgs = response.svgs.map(svg => optimize(svg).data).filter(Boolean).filter(svg => ['path', 'circle', 'rect', 'ellipse', 'polygon', 'polyline'].some(tag => svg.includes(tag))).filter(svg => !svg.includes('logo')).map(DOMPurify.sanitize)
 
     const count = document.getElementById('count')
-    count.textContent = svgs.length
+
+    count.textContent = svgs.length || '0'
+
+    if (svgs.length === 0) {
+        downloadButton.style.display = 'none'
+        return
+    } else {
+        downloadButton.style.display = 'flex'
+    }
 
     const svgsElements = []
 
